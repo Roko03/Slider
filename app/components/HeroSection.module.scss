@@ -1,0 +1,137 @@
+@use "../style" as *;
+
+.hero_section {
+  transform: translateZ(-3px) scale(4);
+  position: sticky;
+  transform-style: flat;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  z-index: -10;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__spiral_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+    width: 70%;
+    height: 60%;
+
+    @include breakpoint(large) {
+      top: -7%;
+      left: -20%;
+      width: 90%;
+      height: 90%;
+    }
+  }
+
+  &__footer_image {
+    position: absolute;
+    left: -5%;
+    bottom: -5%;
+    z-index: -999;
+    width: 25%;
+    height: 25%;
+
+    @include breakpoint(large) {
+      left: -2%;
+      bottom: -2%;
+      width: 35%;
+      height: 35%;
+    }
+
+    img {
+      width: fit-content;
+    }
+  }
+
+  &__rainbow_image {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    transform: translateY(-40%);
+    z-index: -99;
+    width: rem(287);
+
+    @include breakpoint(large) {
+      width: rem(550);
+    }
+  }
+
+  &__container {
+    width: 90%;
+    max-width: rem(1640);
+    margin: 0 auto;
+    padding-top: rem(100);
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    h2 {
+      margin: rem(10) 0;
+      width: 19ch;
+      border-right: rem(2) solid;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(26, end),
+        cursor-blink 0.3s step-end infinite alternate;
+
+      @include breakpoint(large) {
+        margin: rem(20) 0;
+      }
+    }
+
+    h1 {
+      color: transparent;
+      font-weight: 400;
+      -webkit-text-stroke: rem(1) #fcfcfc;
+      opacity: 0;
+
+      width: 13.5ch;
+      border-right: rem(2) solid #fcfcfc;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(26, end), hidden 1s,
+        cursor-blink 0.3s step-end infinite alternate;
+      animation-delay: 3s;
+      animation-fill-mode: forwards;
+    }
+
+    p {
+      margin-top: auto;
+      padding-bottom: rem(160);
+
+      @include breakpoint(medium) {
+        padding-bottom: rem(100);
+        max-width: 40%;
+      }
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+    }
+
+    @keyframes hidden {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes cursor-blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+  }
+}

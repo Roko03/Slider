@@ -1,0 +1,41 @@
+@use "../style" as *;
+
+.container {
+  width: 90%;
+  max-width: rem(1640);
+  margin: 0 auto;
+
+  .article {
+    padding-top: rem(90);
+    padding-bottom: rem(40);
+    display: flex;
+    gap: rem(30);
+    flex-direction: column;
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+
+    &__image {
+      width: 100%;
+
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &__info {
+      width: 100%;
+
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+    }
+  }
+}

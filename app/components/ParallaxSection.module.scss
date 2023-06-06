@@ -1,0 +1,108 @@
+@use "../style" as *;
+
+.parallax_section {
+  background-color: #010101;
+  z-index: 9999;
+  padding: rem(50) 0;
+  position: relative;
+  height: 100vh;
+
+  &__container {
+    width: 90%;
+    max-width: rem(1640);
+    margin: 0 auto;
+    background-image: url("../../public/background-image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: rem(20);
+
+    .slider {
+      width: rem(160);
+      height: rem(320);
+      position: absolute;
+      top: 30%;
+      right: 0;
+      transform: translateY(-30%);
+      overflow: hidden;
+
+      @include breakpoint(large) {
+        width: rem(250);
+        height: rem(500);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &__circle_small {
+        width: rem(130);
+        height: rem(130);
+        border-radius: 100%;
+        background: linear-gradient(
+          90.57deg,
+          #272727 0.53%,
+          rgba(39, 39, 39, 0.2) 50.04%
+        );
+        filter: blur(rem(1));
+        position: absolute;
+        top: 50%;
+        right: -50%;
+        transform: translateY(-50%);
+
+        @include breakpoint(large) {
+          width: rem(230);
+          height: rem(230);
+        }
+      }
+
+      &__circle_big {
+        width: rem(320);
+        height: rem(320);
+        border-radius: 100%;
+        border: rem(2) solid #ffffff;
+
+        @include breakpoint(large) {
+          width: rem(500);
+          height: rem(500);
+        }
+
+        ul {
+          position: absolute;
+          top: 50%;
+          left: rem(20);
+          transform: translateY(-50%);
+          color: #fcfcfc;
+          display: flex;
+          flex-direction: column;
+          gap: rem(25);
+
+          @include breakpoint(large) {
+            gap: rem(45);
+          }
+
+          .active {
+            font-weight: 700;
+            color: #fcfcfc;
+          }
+
+          li {
+            color: #a6a8ac;
+            font-weight: 400;
+            cursor: pointer;
+          }
+
+          li:nth-child(odd) {
+            margin-left: rem(40);
+
+            @include breakpoint(large) {
+              margin-left: rem(70);
+            }
+          }
+        }
+      }
+
+      .active {
+        display: flex;
+      }
+    }
+  }
+}
